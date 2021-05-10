@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">融音乐</string>
+    <string name="title_home">主页</string>
+    <string name="title_notifications">通知</string>
+    <string name="title_activity_guide">导航页</string>
+    <string name="next">下一步</string>
+    <string name="previous">上一步</string>
+    <string name="slogan">简乐而不简单</string>
+</resources>
