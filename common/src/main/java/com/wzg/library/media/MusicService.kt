@@ -13,7 +13,7 @@ import androidx.media.MediaBrowserServiceCompat
  * @date 2021/5/10 10:41 上午
  */
 class MusicService : MediaBrowserServiceCompat() {
-    /*正在进行的媒体播放会话,它提供了各种机制来控制播放，接收状态更新以及检索有关当前媒体的元数据。*/
+    /* 媒体会话 */
     private lateinit var mediaSession: MediaSessionCompat
 
     override fun onCreate() {

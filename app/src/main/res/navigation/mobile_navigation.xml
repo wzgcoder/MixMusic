@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.wzg.mixmusic.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_find"
+        android:name="com.wzg.mixmusic.ui.find.MusicFindFragment"
+        android:label="@string/title_find"
+        tools:layout="@layout/fragment_find" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.wzg.mixmusic.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_mine"
+        android:name="com.wzg.mixmusic.ui.mine.MineFragment"
+        android:label="@string/title_mine"
+        tools:layout="@layout/fragment_mine" />
 </navigation>

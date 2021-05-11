@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id ("kotlin-kapt")
 }
 
 android {
@@ -40,6 +41,8 @@ android {
 
 dependencies {
     api(project(":common"))
+    kapt (Deps.rxHttp_compiler)
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")

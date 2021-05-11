@@ -8,6 +8,6 @@ import androidx.lifecycle.ViewModel
  * @author wangzhangang
  * @date 2021/4/30 4:54 下午
  */
-class MianViewModel : ViewModel() {
+class MainViewModel : ViewModel() {
 
 }

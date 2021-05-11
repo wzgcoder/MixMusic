@@ -49,12 +49,26 @@ dependencies {
     api AndroidX.media
     api Google.material
 
+    //协程
+    api Kotlin.coroutings_core
+    api Kotlin.coroutings_android
+
     /*快捷添加多type reyclerView Adapter*/
     api Deps.multitype
     //rxjava
     api Deps.rxJava
-    api Deps.okHttp
-    api Deps.retrofit
+    //okhttp
+    api Deps.squareup.okHttp3
+    //retrofit
+    api Deps.squareup.retrofit
+    //RxHttp
+    api Deps.rxHttp
+    api Deps.rxlift_rxjava
+    //moshi
+    api Deps.squareup.moshi
+    //binding
+    api Deps.binding
+
     //test
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
