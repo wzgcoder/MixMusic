@@ -5,6 +5,10 @@ import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.session.MediaSessionCompat
 import androidx.media.MediaBrowserServiceCompat
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 /**
  * describe Java类作用描述.
@@ -15,6 +19,10 @@ import androidx.media.MediaBrowserServiceCompat
 class MusicService : MediaBrowserServiceCompat() {
     /* 媒体会话 */
     private lateinit var mediaSession: MediaSessionCompat
+
+    private val serviceJob = SupervisorJob()
+    private val serviceScope = CoroutineScope(Dispatchers.Main + serviceJob)
+
 
     override fun onCreate() {
         super.onCreate()
@@ -36,22 +44,32 @@ class MusicService : MediaBrowserServiceCompat() {
     }
 
     /**
-     * 返回"root"媒体id，用于获取用于 浏览/播放 的媒体列表。
+     * 此方法只在服务连接的时候调用
+     * 返回一个rootId不为空的BrowserRoot则表示客户端可以连接服务，也可以浏览其媒体资源
+     * 如果返回null则表示客户端不能流量媒体资源
      */
     override fun onGetRoot(
         clientPackageName: String,
         clientUid: Int,
         rootHints: Bundle?
-    ): BrowserRoot? {
-        TODO("Not yet implemented")
-    }
+    ): BrowserRoot? =
+        BrowserRoot(MIX_BROWSABLE_ROOT, null)
 
 
+    /**
+     * 与客户端通信：
+     * 当客户端发送订阅后，这里判断不同的 parentId (就是MediaId)返回数据不同的数据。
+     */
     override fun onLoadChildren(
         parentId: String,
         result: Result<MutableList<MediaBrowserCompat.MediaItem>>
     ) {
-        TODO("Not yet implemented")
+        
     }
 
 }
+
+/*
+ * (Media) Session events
+ */
+const val NETWORK_FAILURE = "com.example.android.uamp.media.session.NETWORK_FAILURE"

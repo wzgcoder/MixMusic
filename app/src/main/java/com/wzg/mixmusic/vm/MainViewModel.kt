@@ -10,4 +10,11 @@ import androidx.lifecycle.ViewModel
  */
 class MainViewModel : ViewModel() {
 
+    /**
+     * 播放媒体文件
+     * 该方法接受一个[MediaItem]
+     */
+    fun playMedia(){
+
+    }
 }
