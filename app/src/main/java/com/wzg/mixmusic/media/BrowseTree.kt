@@ -1,4 +1,4 @@
-package com.wzg.library.media
+package com.wzg.mixmusic.media
 
 /**
  * describe Java类作用描述.

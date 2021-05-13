@@ -2,11 +2,12 @@ package com.wzg.mixmusic.utils
 
 import android.content.ComponentName
 import android.content.Context
-import com.wzg.library.media.MusicService
-import com.wzg.library.media.MusicServiceConnection
+import com.wzg.mixmusic.media.MusicService
+import com.wzg.mixmusic.media.MusicServiceConnection
+import com.wzg.mixmusic.vm.PlaylistViewModel
 
 /**
- * 用于注入MusicService的连接服务到Activity或Fragment中
+ * 用于注入Activity或Fragment所需类
  *
  * @author wangzhangang
  * @date 2021/5/12 11:01 上午
@@ -18,6 +19,10 @@ object InjectorUtils {
             ComponentName(context,MusicService::class.java)
         )
     }
-
+    fun providePlaylistViewModel(context: Context): PlaylistViewModel.Factory {
+        val applicationContext = context.applicationContext
+        val musicServiceConnection = provideMusicServiceConnection(applicationContext)
+        return PlaylistViewModel.Factory(musicServiceConnection)
+    }
 
 }

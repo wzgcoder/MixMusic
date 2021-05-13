@@ -35,4 +35,8 @@ object Deps {
     //viewBinding 和 DataBinding 简化封装
     const val binding =  "com.hi-dhl:binding:1.1.3"
 
+    /*JakeWharton 的库*/
+    //Log打印库
+    const val timber = "com.jakewharton.timber:timber:4.7.1"
+
 }

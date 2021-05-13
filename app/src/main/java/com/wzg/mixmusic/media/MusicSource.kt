@@ -1,4 +1,4 @@
-package com.wzg.library.media
+package com.wzg.mixmusic.media
 
 import android.os.Bundle
 import android.support.v4.media.MediaMetadataCompat

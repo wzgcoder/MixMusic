@@ -1,6 +1,8 @@
 package com.wzg.mixmusic.vm
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.wzg.mixmusic.media.MusicServiceConnection
 
 /**
  * describe Java类作用描述.
@@ -8,13 +10,21 @@ import androidx.lifecycle.ViewModel
  * @author wangzhangang
  * @date 2021/4/30 4:54 下午
  */
-class MainViewModel : ViewModel() {
+class MainViewModel(
+    private val musicServiceConnection: MusicServiceConnection
+) : ViewModel() {
+
 
     /**
-     * 播放媒体文件
-     * 该方法接受一个[MediaItem]
+     * 自定义MainViewModel构造
      */
-    fun playMedia(){
+    class Factory(
+        private val musicServiceConnection: MusicServiceConnection
+    ) : ViewModelProvider.NewInstanceFactory() {
 
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return MainViewModel(musicServiceConnection) as T
+        }
     }
 }

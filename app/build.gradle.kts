@@ -1,7 +1,8 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id ("kotlin-kapt")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -40,8 +41,9 @@ android {
 }
 
 dependencies {
-    api(project(":common"))
-    kapt (Deps.rxHttp_compiler)
+    implementation(project(":common"))
+//    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
+    kapt(Deps.rxHttp_compiler)
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")

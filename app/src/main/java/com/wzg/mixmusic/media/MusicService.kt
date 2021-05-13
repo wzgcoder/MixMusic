@@ -1,14 +1,17 @@
-package com.wzg.library.media
+package com.wzg.mixmusic.media
 
 import android.app.PendingIntent
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.session.MediaSessionCompat
+import android.util.Log
 import androidx.media.MediaBrowserServiceCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import rxhttp.toClass
+import rxhttp.wrapper.param.RxHttp
 
 /**
  * describe Java类作用描述.
@@ -23,6 +26,7 @@ class MusicService : MediaBrowserServiceCompat() {
     private val serviceJob = SupervisorJob()
     private val serviceScope = CoroutineScope(Dispatchers.Main + serviceJob)
 
+    private lateinit var musicSource: MusicSource
 
     override fun onCreate() {
         super.onCreate()
@@ -44,6 +48,7 @@ class MusicService : MediaBrowserServiceCompat() {
     }
 
     /**
+     * 控制对服务的访问
      * 此方法只在服务连接的时候调用
      * 返回一个rootId不为空的BrowserRoot则表示客户端可以连接服务，也可以浏览其媒体资源
      * 如果返回null则表示客户端不能流量媒体资源
@@ -64,7 +69,7 @@ class MusicService : MediaBrowserServiceCompat() {
         parentId: String,
         result: Result<MutableList<MediaBrowserCompat.MediaItem>>
     ) {
-        
+
     }
 
 }

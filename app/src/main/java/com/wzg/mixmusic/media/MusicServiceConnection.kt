@@ -1,4 +1,4 @@
-package com.wzg.library.media
+package com.wzg.mixmusic.media
 
 import android.content.ComponentName
 import android.content.Context
@@ -8,7 +8,7 @@ import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaControllerCompat
 import android.support.v4.media.session.PlaybackStateCompat
 import androidx.lifecycle.MutableLiveData
-import com.wzg.library.media.extensions.id
+import com.wzg.mixmusic.media.extensions.id
 
 /**
  * MusicServiceConnection是连接到MusicService的单例。它是MediaBrowser和MediaController类的包装。
@@ -56,8 +56,32 @@ class MusicServiceConnection(context: Context, serviceComponent: ComponentName) 
         mediaBrowserConnectionCallback, null
     ).apply { connect() }
 
-
+    /*媒体控制器*/
     private lateinit var mediaController: MediaControllerCompat
+
+
+    /**
+     * 订阅服务端，用来获取媒体数据
+     * @param parentId String
+     * @param callback SubscriptionCallback
+     */
+    fun subscribe(parentId: String, callback: MediaBrowserCompat.SubscriptionCallback) {
+        mediaBrowser.subscribe(parentId, callback)
+    }
+
+    /**
+     * 取消订阅
+     * @param parentId String
+     * @param callback SubscriptionCallback
+     */
+    fun unsubscribe(parentId: String, callback: MediaBrowserCompat.SubscriptionCallback) {
+        mediaBrowser.unsubscribe(parentId, callback)
+    }
+
+
+
+
+
 
 
     private inner class MediaBrowserConnectionCallback(val context: Context) :
@@ -86,14 +110,15 @@ class MusicServiceConnection(context: Context, serviceComponent: ComponentName) 
         }
     }
 
+
     private inner class MediaControllerCallBack : MediaControllerCompat.Callback() {
         /**
          * 播放状态改变回调
-         * @param state PlaybackStateCompat
          */
         override fun onPlaybackStateChanged(state: PlaybackStateCompat?) {
             playBackState.postValue(state ?: EMPTY_PLAYBACK_STATE)
         }
+
 
         override fun onMetadataChanged(metadata: MediaMetadataCompat?) {
             // 当ExoPlayer停止时，我们将收到一个带有“空”元数据的回调。
@@ -110,15 +135,26 @@ class MusicServiceConnection(context: Context, serviceComponent: ComponentName) 
 
         }
 
+        //循环模式发生变化
+        override fun onRepeatModeChanged(repeatMode: Int) {
+            super.onRepeatModeChanged(repeatMode)
+        }
+
+        //随机模式发生变化
+        override fun onShuffleModeChanged(shuffleMode: Int) {
+            super.onShuffleModeChanged(shuffleMode)
+        }
+
+        //session事件
         override fun onSessionEvent(event: String?, extras: Bundle?) {
             super.onSessionEvent(event, extras)
-
             when (event) {
                 NETWORK_FAILURE -> networkFailure.postValue(true)
 
             }
         }
 
+        //session销毁
         override fun onSessionDestroyed() {
             mediaBrowserConnectionCallback.onConnectionSuspended()
         }
