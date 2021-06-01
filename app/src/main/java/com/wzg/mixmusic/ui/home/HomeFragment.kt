@@ -1,5 +1,6 @@
 package com.wzg.mixmusic.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,16 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.hi.dhl.binding.viewbind
 import com.wzg.library.base.BaseFragment
+import com.wzg.mixmusic.Constant
 import com.wzg.mixmusic.databinding.FragmentHomeBinding
-import com.wzg.mixmusic.utils.InjectorUtils
-import com.wzg.mixmusic.vm.PlaylistViewModel
+import com.wzg.mixmusic.ui.playlist.PlaylistActivity
+import com.wzg.mixmusic.vm.HomeViewModel
 
 class HomeFragment : BaseFragment() {
     private val binding: FragmentHomeBinding by viewbind()
     private val homeViewModel: HomeViewModel by viewModels()
-    private val playlistViewModel by viewModels<PlaylistViewModel>{
-        InjectorUtils.providePlaylistViewModel(requireContext())
-    }
 
 
     override fun onCreateView(
@@ -29,22 +28,15 @@ class HomeFragment : BaseFragment() {
 
 
     override fun initView() {
-//        homeViewModel.loginInfo.observe(viewLifecycleOwner, Observer {
-//            binding.textHome.text = it
-//        })
+        binding.textHome.setOnClickListener {
+            Intent(requireContext(), PlaylistActivity::class.java).apply {
+                putExtra(Constant.PLAYLIST_ID_KEY, "24381616")
+                startActivity(this)
+            }
 
-        homeViewModel.playListData.observe(
-            viewLifecycleOwner,
-            {
-                binding.textHome.text = it.playlist.id
-            },
-        )
+        }
     }
 
     override fun initData() {
-//        homeViewModel.phoneLogin("17601618067", "wangzg88521")
-        homeViewModel.loadPlayList("24381616")
-        playlistViewModel.loadPlaylist(24381616)
     }
-
 }

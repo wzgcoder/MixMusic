@@ -1,80 +1,106 @@
 package com.wzg.mixmusic.media
 
-import android.app.PendingIntent
+import android.media.browse.MediaBrowser
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
+import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaSessionCompat
-import android.util.Log
+import android.support.v4.media.session.PlaybackStateCompat
 import androidx.media.MediaBrowserServiceCompat
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
+import com.drake.net.Get
+import com.drake.net.utils.scopeNet
+import com.wzg.mixmusic.data.entity.PlayListResult
+import com.wzg.mixmusic.data.entity.SearchDataCompat
 import rxhttp.toClass
 import rxhttp.wrapper.param.RxHttp
+import timber.log.Timber
 
 /**
  * describe Java类作用描述.
  *
  * @author wangzhangang
- * @date 2021/5/10 10:41 上午
+ * @date 2021/6/1 4:31 下午
  */
 class MusicService : MediaBrowserServiceCompat() {
-    /* 媒体会话 */
     private lateinit var mediaSession: MediaSessionCompat
+    private lateinit var playbackState: PlaybackStateCompat
 
-    private val serviceJob = SupervisorJob()
-    private val serviceScope = CoroutineScope(Dispatchers.Main + serviceJob)
-
-    private lateinit var musicSource: MusicSource
 
     override fun onCreate() {
         super.onCreate()
-
-        //构建一个 PendingIntent 用于启动UI。
-        val sessionActivityPendingIntent =
-            packageManager.getLaunchIntentForPackage(packageName).let { sessionIntent ->
-                PendingIntent.getActivity(this, 0, sessionIntent, 0)
-            }
-
-        //创建一个新的 MediaSession。
-        mediaSession = MediaSessionCompat(this, "MusioService")
-            .apply {
-                setSessionActivity(sessionActivityPendingIntent)
-                //让会话处于活动状态，准备接受命令
-                isActive = true
-            }
+        //创建媒体会话
+        mediaSession = MediaSessionCompat(this, LOG_TAG).apply {
+            //在会话上设置此标志，表示它可以处理媒体按钮事件。
+            // 已弃用此标志不再使用。
+            // 所有媒体会话都将处理媒体按钮事件。为了向后兼容，将始终设置此标志。
+//            setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS
+//                    or MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS
+//            )
+            playbackState = PlaybackStateCompat.Builder()
+                .setActions(
+                    PlaybackStateCompat.ACTION_PLAY
+                            or PlaybackStateCompat.ACTION_PLAY_PAUSE
+                ).build()
+            setPlaybackState(playbackState)
+            setCallback(MediaSessionCallBack())
+            setSessionToken(sessionToken)
+        }
 
     }
 
-    /**
-     * 控制对服务的访问
-     * 此方法只在服务连接的时候调用
-     * 返回一个rootId不为空的BrowserRoot则表示客户端可以连接服务，也可以浏览其媒体资源
-     * 如果返回null则表示客户端不能流量媒体资源
-     */
+    private inner class MediaSessionCallBack : MediaSessionCompat.Callback() {
+    }
+
     override fun onGetRoot(
         clientPackageName: String,
         clientUid: Int,
         rootHints: Bundle?
-    ): BrowserRoot? =
-        BrowserRoot(MIX_BROWSABLE_ROOT, null)
-
-
-    /**
-     * 与客户端通信：
-     * 当客户端发送订阅后，这里判断不同的 parentId (就是MediaId)返回数据不同的数据。
-     */
-    override fun onLoadChildren(
-        parentId: String,
-        result: Result<MutableList<MediaBrowserCompat.MediaItem>>
-    ) {
-
+    ): BrowserRoot? {
+        return BrowserRoot(MY_EMPTY_MEDIA_ROOT_ID, null)
     }
 
+    override fun onLoadChildren(
+        parentId: String,
+        result: Result<List<MediaBrowserCompat.MediaItem>>
+    ) {
+        result.detach()
+        scopeNet {
+            //获取歌单ids
+            val playlistData =  RxHttp.get("/playlist/detail")
+                .add("id", parentId)
+                .toClass<PlayListResult>()
+                .await()
+            val trackIds = mutableListOf<Long>()
+            playlistData.playlist.trackIds.forEach {
+                trackIds.add(it.id)
+            }
+            //获取歌单所有歌曲url
+            val ids = trackIds.toString().run {
+                substring(1, length - 1)
+            }
+            val playlistSongs =  RxHttp.get("/song/detail")
+                .add("ids", ids)
+                .toClass<SearchDataCompat>()
+                .await()
+            //转换成[MediaBrowserCompat.MediaItem]
+            val mediaItems = playlistSongs.songs.map {
+                val playlistMetadata = MediaMetadataCompat.Builder().apply {
+                    id = it.id.toString()
+                    title = it.name
+                    artist = it.ar.map { artistItem ->
+                        artistItem.name
+                    }.toString()
+                    flag = MediaBrowserCompat.MediaItem.FLAG_BROWSABLE
+                }.build()
+                MediaBrowserCompat.MediaItem(playlistMetadata.description, playlistMetadata.flag)
+            }
+            result.sendResult(mediaItems)
+            Timber.i(playlistSongs.toString())
+        }
+    }
 }
 
-/*
- * (Media) Session events
- */
-const val NETWORK_FAILURE = "com.example.android.uamp.media.session.NETWORK_FAILURE"
+
+private const val MY_MEDIA_ROOT_ID = "media_root_id"
+private const val MY_EMPTY_MEDIA_ROOT_ID = "empty_root_id"
+private const val LOG_TAG = "MusicService"

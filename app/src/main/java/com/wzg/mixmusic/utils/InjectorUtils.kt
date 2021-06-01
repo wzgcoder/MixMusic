@@ -19,10 +19,10 @@ object InjectorUtils {
             ComponentName(context,MusicService::class.java)
         )
     }
-    fun providePlaylistViewModel(context: Context): PlaylistViewModel.Factory {
+    fun providePlaylistViewModel(context: Context,mediaId:String): PlaylistViewModel.Factory {
         val applicationContext = context.applicationContext
         val musicServiceConnection = provideMusicServiceConnection(applicationContext)
-        return PlaylistViewModel.Factory(musicServiceConnection)
+        return PlaylistViewModel.Factory(mediaId,musicServiceConnection)
     }
 
 }

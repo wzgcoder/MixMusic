@@ -1,4 +1,4 @@
-package com.wzg.mixmusic.ui.find
+package com.wzg.mixmusic.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.hi.dhl.binding.viewbind
 import com.wzg.mixmusic.databinding.FragmentMineBinding
+import com.wzg.mixmusic.vm.MineViewModel
 
 class MineFragment : Fragment() {
 

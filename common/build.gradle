@@ -10,15 +10,10 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 30
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    viewBinding {
-        enabled = true
-    }
 
     buildTypes {
         release {
@@ -33,6 +28,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -45,34 +43,36 @@ dependencies {
     api AndroidX.lifecycle.extensions
     api AndroidX.navigation.fragmentKtx
     api AndroidX.navigation.uiKtx
-    api AndroidX.dataBinding.runtime
+//    api AndroidX.dataBinding.runtime
     api AndroidX.media
     api Google.material
-
-    //协程
+    api Google.exoplayer.core
+    api Google.exoplayer.ui
+    api Google.exoplayer.mediasession
+    api Google.exoplayer.cast
     api Kotlin.coroutings_core
     api Kotlin.coroutings_android
-
-    /*快捷添加多type reyclerView Adapter*/
     api Deps.multitype
-    //rxjava
     api Deps.rxJava
-    //okhttp
     api Deps.squareup.okHttp3
-    //retrofit
     api Deps.squareup.retrofit
+    api Deps.squareup.moshi
+    api Deps.binding
+    api Deps.timber
+    api Deps.BRV
+    api Deps.coil
+    api Deps.Net
     //RxHttp
     api Deps.rxHttp
     api Deps.rxlift_rxjava
-    //moshi
-    api Deps.squareup.moshi
-    //binding
-    api Deps.binding
-
-    api Deps.timber
-
+    //jetpack compose
+    api Compose.ui
+    api Compose.foundation
+    api Compose.material
+    api Compose.material_icons_core
+    api Compose.material_icons_extended
     //test
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

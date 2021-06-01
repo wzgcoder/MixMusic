@@ -1,43 +1,29 @@
 package com.wzg.mixmusic.data.entity
 
-import android.net.Uri
-import androidx.recyclerview.widget.DiffUtil
+import android.os.Parcelable
+import androidx.annotation.Keep
+import kotlinx.parcelize.Parcelize
 
 /**
  * describe Java类作用描述.
  *
  * @author wangzhangang
- * @date 2021/5/12 2:30 下午
+ * @date 2021/5/13 2:29 下午
  */
+@Keep
+@Parcelize
 data class MediaItemData(
-    val mediaId: String,
-    val title: String,
-    val subtitle: String,
-    val albumArtUri: Uri,
-    val browsable: Boolean,
-    var playbackRes: Int
-) {
+    val source: Int?,//歌曲来源 网易、QQ、本地
+    val id: String, //歌曲id
+    val name: String, //歌曲名称
+    val imageUrl: String,//封面图片
+    val artists: List<String> //艺术家
+) : Parcelable {
 
-    companion object {
-        const val PLAYBACK_RES_CHANGED = 1
-
-        val diffCallbacl = object : DiffUtil.ItemCallback<MediaItemData>() {
-            override fun areItemsTheSame(oldItem: MediaItemData, newItem: MediaItemData): Boolean =
-                oldItem.mediaId == newItem.mediaId
-
-            override fun areContentsTheSame(
-                oldItem: MediaItemData,
-                newItem: MediaItemData
-            ): Boolean =
-                oldItem.mediaId == newItem.mediaId && oldItem.playbackRes == newItem.playbackRes
-
-            override fun getChangePayload(oldItem: MediaItemData, newItem: MediaItemData): Any? =
-                if (oldItem.playbackRes != newItem.playbackRes) {
-                    PLAYBACK_RES_CHANGED
-                } else null
-
-        }
-    }
-
-
+    @Keep
+    @Parcelize
+    data class ArtistsData(
+        val artistId: String?,//艺术家Id
+        val name: String? //艺术家名称
+    ) : Parcelable
 }

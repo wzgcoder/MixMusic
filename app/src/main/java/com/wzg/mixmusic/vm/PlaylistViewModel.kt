@@ -1,16 +1,12 @@
 package com.wzg.mixmusic.vm
 
-import androidx.lifecycle.*
+import android.support.v4.media.MediaBrowserCompat
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.wzg.mixmusic.data.entity.MediaItemData
 import com.wzg.mixmusic.media.MusicServiceConnection
-import com.wzg.mixmusic.data.entity.PlayListResult
-import com.wzg.mixmusic.data.entity.SearchDataCompat
-import com.wzg.mixmusic.data.entity.StandardSongData
-import kotlinx.coroutines.launch
-import rxhttp.toClass
-import rxhttp.toStr
-import rxhttp.wrapper.param.RxHttp
 import timber.log.Timber
-import java.util.*
 
 /**
  * describe Java类作用描述.
@@ -19,46 +15,54 @@ import java.util.*
  * @date 2021/5/13 4:52 下午
  */
 class PlaylistViewModel(
-    private val musicServiceConnection: MusicServiceConnection
+    private val playlistId: String,
+    musicServiceConnection: MusicServiceConnection
 ) : ViewModel() {
-    private val _currentPlayList = MutableLiveData<MutableList<StandardSongData>>()
-    val currentPlayList: LiveData<MutableList<StandardSongData>> = _currentPlayList
 
-    fun loadPlaylist(playlistId: Long) {
-        Timber.i("加载歌单")
-        viewModelScope.launch {
-            val result = RxHttp.get("/playlist/detail")
-                .add("id", playlistId)
-                .toClass<PlayListResult>()
-                .await()
-            val trackIds = mutableListOf<Long>()
-            result.playlist.trackIds.forEach {
-                trackIds.add(it.id)
+    private val _playlistItems = MutableLiveData<List<MediaItemData>>()
+    fun getPlaylistItems() = _playlistItems
+
+    //订阅回调用来获取音乐数据
+    private val subcriptionCallBack = object : MediaBrowserCompat.SubscriptionCallback() {
+        override fun onChildrenLoaded(
+            parentId: String,
+            children: MutableList<MediaBrowserCompat.MediaItem>
+        ) {
+            Timber.i(children.toString())
+
+            val itemList = children.map { child ->
+                val subtitle = child.description.subtitle ?: ""
+                MediaItemData(
+                    source = 0,
+                    id = child.mediaId!!,
+                    name = child.description.title.toString(),
+                    imageUrl = child.description.iconUri.toString(),
+                    artists = subtitle.split(",")
+                )
             }
-            Timber.i(trackIds.toString())
-
-            loadSongDetails(trackIds.toString().run {
-                substring(1, length - 1)
-            })
+            _playlistItems.postValue(itemList)
         }
     }
 
-    private suspend fun loadSongDetails(ids: String) {
-        Timber.i("处理后${ids}")
-        val playList = RxHttp.get("/song/detail")
-            .add("ids", ids)
-            .toStr()
-//            .toClass<SearchDataCompat>()
-            .await()
-        Timber.i(playList.toString())
+    private val musicServiceConnection = musicServiceConnection.also {
+        Timber.i("开始订阅")
+        it.subscribe(playlistId, subcriptionCallBack)
     }
 
+
+    override fun onCleared() {
+        super.onCleared()
+        musicServiceConnection.unsubscribe(playlistId, subcriptionCallBack)
+    }
+
+
     class Factory(
+        private val mediaId: String,
         private val musicServiceConnection: MusicServiceConnection
     ) : ViewModelProvider.NewInstanceFactory() {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return PlaylistViewModel(musicServiceConnection) as T
+            return PlaylistViewModel(mediaId, musicServiceConnection) as T
         }
     }
 }

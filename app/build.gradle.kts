@@ -37,14 +37,19 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Compose.composeVerion
     }
 }
 
 dependencies {
     implementation(project(":common"))
-//    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.4.31")
-    kapt(Deps.rxHttp_compiler)
 
+    kapt(Deps.rxHttp_compiler)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
