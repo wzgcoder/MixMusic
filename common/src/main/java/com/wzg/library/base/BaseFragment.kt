@@ -1,6 +1,7 @@
 package com.wzg.library.base
 
 import android.os.Bundle
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 
 /**
@@ -9,7 +10,7 @@ import androidx.fragment.app.Fragment
  * @author wangzhangang
  * @date 2021/5/11 11:16 上午
  */
-abstract class BaseFragment : Fragment(){
+abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

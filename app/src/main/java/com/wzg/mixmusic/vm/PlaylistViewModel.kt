@@ -28,8 +28,6 @@ class PlaylistViewModel(
             parentId: String,
             children: MutableList<MediaBrowserCompat.MediaItem>
         ) {
-            Timber.i(children.toString())
-
             val itemList = children.map { child ->
                 val subtitle = child.description.subtitle ?: ""
                 MediaItemData(
@@ -45,7 +43,6 @@ class PlaylistViewModel(
     }
 
     private val musicServiceConnection = musicServiceConnection.also {
-        Timber.i("开始订阅")
         it.subscribe(playlistId, subcriptionCallBack)
     }
 

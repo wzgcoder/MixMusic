@@ -59,9 +59,9 @@ dependencies {
     api Deps.squareup.moshi
     api Deps.binding
     api Deps.timber
-    api Deps.BRV
     api Deps.coil
     api Deps.Net
+    api Deps.BRVAH
     //RxHttp
     api Deps.rxHttp
     api Deps.rxlift_rxjava

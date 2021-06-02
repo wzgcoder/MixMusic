@@ -8,4 +8,9 @@
     <string name="slogan">简乐而不简单</string>
     <string name="title_find">发现</string>
     <string name="title_mine">我的</string>
+    <string name="duration_unknown">--:--</string>
+    <string name="duration_format">%d:%02d</string>
+
+
+    <string name="unknown_error">未知错误</string>
 </resources>

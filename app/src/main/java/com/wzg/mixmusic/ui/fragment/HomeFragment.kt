@@ -1,4 +1,4 @@
-package com.wzg.mixmusic.ui.home
+package com.wzg.mixmusic.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,12 @@ import androidx.fragment.app.viewModels
 import com.hi.dhl.binding.viewbind
 import com.wzg.library.base.BaseFragment
 import com.wzg.mixmusic.Constant
+import com.wzg.mixmusic.R
 import com.wzg.mixmusic.databinding.FragmentHomeBinding
-import com.wzg.mixmusic.ui.playlist.PlaylistActivity
+import com.wzg.mixmusic.ui.activity.PlaylistActivity
 import com.wzg.mixmusic.vm.HomeViewModel
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(R.layout.fragment_now_playing) {
     private val binding: FragmentHomeBinding by viewbind()
     private val homeViewModel: HomeViewModel by viewModels()
 

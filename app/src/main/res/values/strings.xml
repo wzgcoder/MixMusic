@@ -9,11 +9,10 @@
     <string name="previous">Previous</string>
 
     <string name="slogan">Simple but not simple</string>
-    <string name="title_activity_playlist">PlaylistActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="duration_unknown">--:--</string>
+    <string name="duration_format">%d:%02d</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Error Message-->
+    <string name="unknown_error">unknown error</string>
+    <string name="error_media_not_found">media not found</string>
 </resources>

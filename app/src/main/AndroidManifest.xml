@@ -18,9 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MixMusic">
         <activity
-            android:name=".ui.playlist.PlaylistActivity"
+            android:name=".ui.activity.PlaylistActivity"
             android:exported="true"
-            android:label="@string/title_activity_playlist"
             android:theme="@style/Theme.MixMusic.NoActionBar" />
         <activity
             android:name=".MainActivity"

@@ -14,7 +14,7 @@ data class SearchDataCompat(
 
     ) {
     data class CompatSearchSongData(
-        val id: Long,
+        val id: String,
         val name: String,
         val al: CompatAlbumData, // val album: CompatAlbumData,
         val ar: ArrayList<CompatArtistData>, // 艺术家

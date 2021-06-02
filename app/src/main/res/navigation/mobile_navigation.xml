@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.wzg.mixmusic.ui.home.HomeFragment"
+        android:name="com.wzg.mixmusic.ui.fragment.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_find"
-        android:name="com.wzg.mixmusic.ui.find.MusicFindFragment"
+        android:name="com.wzg.mixmusic.ui.fragment.MusicFindFragment"
         android:label="@string/title_find"
         tools:layout="@layout/fragment_find" />
 
     <fragment
         android:id="@+id/navigation_mine"
-        android:name="com.wzg.mixmusic.ui.mine.MineFragment"
+        android:name="com.wzg.mixmusic.ui.fragment.MineFragment"
         android:label="@string/title_mine"
         tools:layout="@layout/fragment_mine" />
 </navigation>

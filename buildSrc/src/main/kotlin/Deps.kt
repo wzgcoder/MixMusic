@@ -49,4 +49,7 @@ object Deps {
     //kolin图片加载框架
     const val coil = "io.coil-kt:coil:1.2.1"
 
+    //BaseRecyclerViewAdapterHelper
+    const val BRVAH = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
+
 }
