@@ -1162,7 +1162,7 @@
 
 "@docusaurus/core@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/core/download/@docusaurus/core-2.0.0-beta.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Fcore%2Fdownload%2F%40docusaurus%2Fcore-2.0.0-beta.6.tgz#9847ae211a04f1d2b057f8e5ba650e76b9c2df83"
+  resolved "https://registry.nlark.com/@docusaurus/core/download/@docusaurus/core-2.0.0-beta.6.tgz#9847ae211a04f1d2b057f8e5ba650e76b9c2df83"
   integrity sha1-mEeuIRoE8dKwV/jlumUOdrnC34M=
   dependencies:
     "@babel/core" "^7.12.16"
@@ -1247,7 +1247,7 @@
 
 "@docusaurus/cssnano-preset@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/cssnano-preset/download/@docusaurus/cssnano-preset-2.0.0-beta.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Fcssnano-preset%2Fdownload%2F%40docusaurus%2Fcssnano-preset-2.0.0-beta.6.tgz#0c277854f0262dca7bcb3daf99866e8a49e29118"
+  resolved "https://registry.nlark.com/@docusaurus/cssnano-preset/download/@docusaurus/cssnano-preset-2.0.0-beta.6.tgz#0c277854f0262dca7bcb3daf99866e8a49e29118"
   integrity sha1-DCd4VPAmLcp7yz2vmYZuiknikRg=
   dependencies:
     cssnano-preset-advanced "^5.1.1"
@@ -1280,7 +1280,7 @@
 
 "@docusaurus/plugin-content-blog@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-content-blog/download/@docusaurus/plugin-content-blog-2.0.0-beta.6.tgz?cache=0&sync_timestamp=1630682300644&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Fplugin-content-blog%2Fdownload%2F%40docusaurus%2Fplugin-content-blog-2.0.0-beta.6.tgz#54ae1c96a8e95dbc58484157c259e8aaf47a3fcb"
+  resolved "https://registry.nlark.com/@docusaurus/plugin-content-blog/download/@docusaurus/plugin-content-blog-2.0.0-beta.6.tgz#54ae1c96a8e95dbc58484157c259e8aaf47a3fcb"
   integrity sha1-VK4clqjpXbxYSEFXwlnoqvR6P8s=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1303,7 +1303,7 @@
 
 "@docusaurus/plugin-content-docs@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-content-docs/download/@docusaurus/plugin-content-docs-2.0.0-beta.6.tgz?cache=0&sync_timestamp=1630682301808&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Fplugin-content-docs%2Fdownload%2F%40docusaurus%2Fplugin-content-docs-2.0.0-beta.6.tgz#38fd58e42fe39e2a0cc738df077917a6fcd4e7ee"
+  resolved "https://registry.nlark.com/@docusaurus/plugin-content-docs/download/@docusaurus/plugin-content-docs-2.0.0-beta.6.tgz#38fd58e42fe39e2a0cc738df077917a6fcd4e7ee"
   integrity sha1-OP1Y5C/jnioMxzjfB3kXpvzU5+4=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1329,7 +1329,7 @@
 
 "@docusaurus/plugin-content-pages@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-content-pages/download/@docusaurus/plugin-content-pages-2.0.0-beta.6.tgz?cache=0&sync_timestamp=1630682301400&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Fplugin-content-pages%2Fdownload%2F%40docusaurus%2Fplugin-content-pages-2.0.0-beta.6.tgz#254e6ee60a8a2b4d85c4fa8408388d585eea0507"
+  resolved "https://registry.nlark.com/@docusaurus/plugin-content-pages/download/@docusaurus/plugin-content-pages-2.0.0-beta.6.tgz#254e6ee60a8a2b4d85c4fa8408388d585eea0507"
   integrity sha1-JU5u5gqKK02FxPqECDiNWF7qBQc=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1345,7 +1345,7 @@
 
 "@docusaurus/plugin-debug@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-debug/download/@docusaurus/plugin-debug-2.0.0-beta.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Fplugin-debug%2Fdownload%2F%40docusaurus%2Fplugin-debug-2.0.0-beta.6.tgz#dc5ebc3c5c1c144b924ab3282fedbfc44cc78be0"
+  resolved "https://registry.nlark.com/@docusaurus/plugin-debug/download/@docusaurus/plugin-debug-2.0.0-beta.6.tgz#dc5ebc3c5c1c144b924ab3282fedbfc44cc78be0"
   integrity sha1-3F68PFwcFEuSSrMoL+2/xEzHi+A=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1371,7 +1371,7 @@
 
 "@docusaurus/plugin-sitemap@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-sitemap/download/@docusaurus/plugin-sitemap-2.0.0-beta.6.tgz?cache=0&sync_timestamp=1630682301013&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Fplugin-sitemap%2Fdownload%2F%40docusaurus%2Fplugin-sitemap-2.0.0-beta.6.tgz#5dd74bc8a5845c0e7eac7bfce05a18f57e0b3ed2"
+  resolved "https://registry.nlark.com/@docusaurus/plugin-sitemap/download/@docusaurus/plugin-sitemap-2.0.0-beta.6.tgz#5dd74bc8a5845c0e7eac7bfce05a18f57e0b3ed2"
   integrity sha1-XddLyKWEXA5+rHv84FoY9X4LPtI=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1439,7 +1439,7 @@
 
 "@docusaurus/theme-common@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/theme-common/download/@docusaurus/theme-common-2.0.0-beta.6.tgz?cache=0&sync_timestamp=1630682302181&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Ftheme-common%2Fdownload%2F%40docusaurus%2Ftheme-common-2.0.0-beta.6.tgz#17cbf38400d752e264cdbebbc57a92f2bdfc7052"
+  resolved "https://registry.nlark.com/@docusaurus/theme-common/download/@docusaurus/theme-common-2.0.0-beta.6.tgz#17cbf38400d752e264cdbebbc57a92f2bdfc7052"
   integrity sha1-F8vzhADXUuJkzb67xXqS8r38cFI=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1469,7 +1469,7 @@
 
 "@docusaurus/types@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/types/download/@docusaurus/types-2.0.0-beta.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Ftypes%2Fdownload%2F%40docusaurus%2Ftypes-2.0.0-beta.6.tgz#f92a61cc42e5921d325114ebc7b30c5e8c368683"
+  resolved "https://registry.nlark.com/@docusaurus/types/download/@docusaurus/types-2.0.0-beta.6.tgz#f92a61cc42e5921d325114ebc7b30c5e8c368683"
   integrity sha1-+SphzELlkh0yURTrx7MMXow2hoM=
   dependencies:
     commander "^5.1.0"
@@ -1480,7 +1480,7 @@
 
 "@docusaurus/utils-common@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/utils-common/download/@docusaurus/utils-common-2.0.0-beta.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Futils-common%2Fdownload%2F%40docusaurus%2Futils-common-2.0.0-beta.6.tgz#afd26a9f67b16479058ead66a310738c21293ae5"
+  resolved "https://registry.nlark.com/@docusaurus/utils-common/download/@docusaurus/utils-common-2.0.0-beta.6.tgz#afd26a9f67b16479058ead66a310738c21293ae5"
   integrity sha1-r9Jqn2exZHkFjq1moxBzjCEpOuU=
   dependencies:
     "@docusaurus/types" "2.0.0-beta.6"
@@ -1488,7 +1488,7 @@
 
 "@docusaurus/utils-validation@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/utils-validation/download/@docusaurus/utils-validation-2.0.0-beta.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Futils-validation%2Fdownload%2F%40docusaurus%2Futils-validation-2.0.0-beta.6.tgz#7b98216de844138e9606a128c09182185ed84621"
+  resolved "https://registry.nlark.com/@docusaurus/utils-validation/download/@docusaurus/utils-validation-2.0.0-beta.6.tgz#7b98216de844138e9606a128c09182185ed84621"
   integrity sha1-e5ghbehEE46WBqEowJGCGF7YRiE=
   dependencies:
     "@docusaurus/utils" "2.0.0-beta.6"
@@ -1498,7 +1498,7 @@
 
 "@docusaurus/utils@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/utils/download/@docusaurus/utils-2.0.0-beta.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40docusaurus%2Futils%2Fdownload%2F%40docusaurus%2Futils-2.0.0-beta.6.tgz#1438df9f28b632fe7a4f50663340b463cff07cab"
+  resolved "https://registry.nlark.com/@docusaurus/utils/download/@docusaurus/utils-2.0.0-beta.6.tgz#1438df9f28b632fe7a4f50663340b463cff07cab"
   integrity sha1-FDjfnyi2Mv56T1BmM0C0Y8/wfKs=
   dependencies:
     "@docusaurus/types" "2.0.0-beta.6"
@@ -4764,7 +4764,7 @@ is-alphanumerical@^1.0.0:
 
 is-arguments@^1.0.4:
   version "1.1.1"
-  resolved "https://registry.nlark.com/is-arguments/download/is-arguments-1.1.1.tgz#15b3f88fda01f2a97fec84ca761a560f123efa9b"
+  resolved "https://registry.nlark.com/is-arguments/download/is-arguments-1.1.1.tgz?cache=0&sync_timestamp=1628202102318&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fis-arguments%2Fdownload%2Fis-arguments-1.1.1.tgz#15b3f88fda01f2a97fec84ca761a560f123efa9b"
   integrity sha1-FbP4j9oB8ql/7ITKdhpWDxI++ps=
   dependencies:
     call-bind "^1.0.2"
@@ -8561,9 +8561,9 @@ webpack-sources@^3.2.0:
   integrity sha1-sWlzvPhE682zr94y7aHATQuQ+J0=
 
 webpack@^5.40.0:
-  version "5.51.2"
-  resolved "https://registry.nlark.com/webpack/download/webpack-5.51.2.tgz#f765d258b0bf6abda3c5f21bf855a25720e9796f"
-  integrity sha1-92XSWLC/ar2jxfIb+FWiVyDpeW8=
+  version "5.52.0"
+  resolved "https://registry.nlark.com/webpack/download/webpack-5.52.0.tgz?cache=0&sync_timestamp=1630683088326&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwebpack%2Fdownload%2Fwebpack-5.52.0.tgz#88d997c2c3ebb62abcaa453d2a26e0fd917c71a3"
+  integrity sha1-iNmXwsPrtiq8qkU9Kibg/ZF8caM=
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.50"
@@ -8767,6 +8767,11 @@ yargs@^13.3.2:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^13.1.2"
+
+yarn@^1.22.11:
+  version "1.22.11"
+  resolved "https://registry.nlark.com/yarn/download/yarn-1.22.11.tgz#d0104043e7349046e0e2aec977c24be106925ed6"
+  integrity sha1-0BBAQ+c0kEbg4q7Jd8JL4QaSXtY=
 
 yocto-queue@^0.1.0:
   version "0.1.0"
