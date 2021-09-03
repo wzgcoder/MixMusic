@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[116],{8767:function(s){s.exports=JSON.parse('{"allTagsPath":"/MixMusic/blog/tags","slug":"/MixMusic/blog/tags/hello","name":"hello","count":2,"permalink":"/MixMusic/blog/tags/hello"}')}}]);
